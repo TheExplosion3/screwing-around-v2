@@ -6,9 +6,9 @@ use rand::Rng;
 extern crate chrono;
 use chrono::{Local, Utc};
 
-const NAMELIST: &'static [&'static str] = &["guh?", "Cunt"];
-const MODIFIERLIST: &'static [&'static str] = &[" Greater ", " Inferior ", " Masterful "];
-const DESCRIPTIONLIST: &'static [&'static str] = &["Kills you instantly.", "Makes you serve.", "Transes your gender."];
+const NAMELIST: &'static [&'static str] = &["guh?", "Cunt", "Lavender", "Witcheye", "Hazelnut", "Fortnite: Battle Royale", "Prussian Blue", "Red 40"];
+const MODIFIERLIST: &'static [&'static str] = &[" Greater ", " Inferior ", " Masterful ", " Worthless ", " Expensive ", " Valuable ", " Negated ", " Fake ", " Useless ", " Unusable ", " Incomplete ", " Perfect ", " Productive "];
+const DESCRIPTIONLIST: &'static [&'static str] = &["Kills you instantly.", "Makes you serve.", "Transes your gender.", "Transports you to an alternate reality, where everyone's feet are reversed.", "Makes you lose the game.", "Heals 10 health points.", "Removes 10 health points.", "Gives you the flu.", "Transforms you into an animal."];
 
 
 fn main() {
