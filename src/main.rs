@@ -1,10 +1,10 @@
-use std::{alloc::handle_alloc_error, i128, time::{Duration, SystemTime}};
+use std::{i128, time::{Duration, SystemTime}};
 
 extern crate rand;
-use rand::{Rng};
+use rand::Rng;
 
 extern crate chrono;
-use chrono::{DateTime, Local, Utc};
+use chrono::{Local, Utc};
 
 const NAMELIST: &'static [&'static str] = &["guh?", "Cunt"];
 const MODIFIERLIST: &'static [&'static str] = &[" Greater ", " Inferior ", " Masterful "];
@@ -17,7 +17,7 @@ fn main() {
 
     println!("How many potions would you like to generate? Enter a singular number.");
 
-    let mut num_pot: i128 = 0;
+    let mut num_pot: i128;
     let mut num_pot_string: String = String::new();
 
     loop {
