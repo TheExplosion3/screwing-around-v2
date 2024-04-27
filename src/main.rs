@@ -16,8 +16,10 @@ fn main() {
     let timer = SystemTime::now();
 
     println!("How many potions would you like to generate? Enter a singular number.");
+
     let mut num_pot: i128 = 0;
     let mut num_pot_string: String = String::new();
+
     loop {
 
         let mut breaker: bool = false;
@@ -45,9 +47,11 @@ fn main() {
             break;
         }
     }
+
     println!();
     let mut pot_arr: Vec<Potion> = vec![];
     let mut num_randomizer = rand::thread_rng();
+
     for i in 0..num_pot {
         pot_arr.push(Potion {
             potion_number: i+1,
@@ -99,4 +103,3 @@ fn randomizer(s: &str) -> String {
         return String::from("Invalid argument");
     }
 }
-
