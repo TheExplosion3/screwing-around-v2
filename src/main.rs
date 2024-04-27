@@ -1,7 +1,10 @@
-use std::{i128};
+use std::{alloc::handle_alloc_error, i128, time::{Duration, SystemTime}};
 
 extern crate rand;
 use rand::{Rng};
+
+extern crate chrono;
+use chrono::{DateTime, Local, Utc};
 
 const NAMELIST: &'static [&'static str] = &["guh?", "Cunt"];
 const MODIFIERLIST: &'static [&'static str] = &[" Greater ", " Inferior ", " Masterful "];
@@ -9,6 +12,8 @@ const DESCRIPTIONLIST: &'static [&'static str] = &["Kills you instantly.", "Make
 
 
 fn main() {
+
+    let timer = SystemTime::now();
 
     println!("How many potions would you like to generate? Enter a singular number.");
     let mut num_pot: i128 = 0;
@@ -55,6 +60,20 @@ fn main() {
     for i in pot_arr.into_iter() {
         println!("{}.{}Potion of {}\n\tDescription: {}\n\tYou have {} of these potions.", i.potion_number, i.strength_modifier, i.name, i.description, i.number_of_potions);
     }
+
+    println!("\nStatistics:\n");
+    let elapsed: Duration;
+    match timer.elapsed() {
+        Ok(d) => {
+            elapsed = d;
+        }
+        Err(err) => {
+            elapsed = Duration::new(0, 0);
+            eprintln!("{}", err);
+        }
+    }
+
+    println!("Program terminating, task complete at {} (UTC)/{} (Local), taking {} seconds to run.", Utc::now().to_rfc2822(), Local::now().to_rfc2822(), elapsed.as_secs());
 }
 
 struct Potion {
